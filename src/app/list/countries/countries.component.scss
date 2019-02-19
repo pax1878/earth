@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+}
+
+tr {
+  cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.flag {
+  width: 80px;
+  img {
+    width: 40px;
+  }
+}
+
+.name {
+  span {
+    color: grey;
+    font-style: italic;
+    font-size: 80%;
+  }
+}
