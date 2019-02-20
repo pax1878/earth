@@ -14,8 +14,9 @@ import {
     MatSortModule,
     MatTableModule, MatToolbarModule,
 } from '@angular/material';
-import { CountryComponent } from './detail/country/country.component';
+import {CountryComponent} from './detail/country/country.component';
 import {SidenavService} from './shared/sidenav.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,7 @@ import {SidenavService} from './shared/sidenav.service';
         MatIconModule,
         MatToolbarModule,
         MatSidenavModule,
-        AgmCoreModule.forRoot({})
+        FlexLayoutModule
     ],
     providers: [
         SidenavService
