@@ -1,10 +1,28 @@
-<div *ngIf="country">
-  <div class="head">
-    <img [src]="country.flag" />
-    <a (click)="closeSidebar()"><mat-icon>arrow_back_ios</mat-icon></a>
-    <div class="title">
-      <h1 class="mat-h1" >{{country.name}} <small>({{country.nativeName}})</small></h1>
+<div *ngIf="country" class="country-detail" fxLayout="column" fxLayoutGap="10px">
+    <mat-toolbar color="primary">
+        <a (click)="closeSidebar()">
+            <mat-icon>arrow_back_ios</mat-icon>
+        </a>
+        {{country.name}}
+    </mat-toolbar>
+    <div class="country-info" fxLayout="column">
+        <div fxLayout="row">
+            <mat-card fxFlex="100%">
+                {{country.capital}}
+            </mat-card>
+        </div>
     </div>
-  </div>
-  <img [src]="country.flag" />
+    <mat-accordion class="country-info">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Report
+                </mat-panel-title>
+                <mat-panel-description>
+                    Please let us now if something is wrong...
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <edit-country></edit-country>
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>

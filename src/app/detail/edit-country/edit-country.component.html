@@ -1,0 +1,17 @@
+<form fxLayout="column" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+        <mat-form-field fxFlex="50%" fxFlex.xs="100%">
+            <input matInput placeholder="Your Name" value="">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="50%">
+            <input matInput placeholder="Your eMail" value="">
+        </mat-form-field>
+    </div>
+    <mat-form-field fxFlex="100%">
+        <textarea matInput placeholder="What is wrong?"></textarea>
+    </mat-form-field>
+    <div fxFlex="auto" fxLayoutAlign="end">
+        <button (click)="return;" mat-raised-button color="primary"><mat-icon>email</mat-icon> Submit</button>
+    </div>
+</form>

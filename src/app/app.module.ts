@@ -7,6 +7,8 @@ import {CountriesComponent} from './list/countries/countries.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+    MatButtonModule,
+    MatCardModule, MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
@@ -17,12 +19,14 @@ import {
 import {CountryComponent} from './detail/country/country.component';
 import {SidenavService} from './shared/sidenav.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { EditCountryComponent } from './detail/edit-country/edit-country.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CountriesComponent,
-        CountryComponent
+        CountryComponent,
+        EditCountryComponent
     ],
     imports: [
         BrowserModule,
@@ -37,6 +41,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         MatIconModule,
         MatToolbarModule,
         MatSidenavModule,
+        MatCardModule,
+        MatExpansionModule,
+        MatButtonModule,
         FlexLayoutModule
     ],
     providers: [
