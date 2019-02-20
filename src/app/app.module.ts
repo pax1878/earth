@@ -10,15 +10,18 @@ import {
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatProgressSpinnerModule,
+    MatProgressSpinnerModule, MatSidenavModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule, MatToolbarModule,
 } from '@angular/material';
+import { CountryComponent } from './detail/country/country.component';
+import {SidenavService} from './shared/sidenav.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CountriesComponent
+        CountriesComponent,
+        CountryComponent
     ],
     imports: [
         BrowserModule,
@@ -30,9 +33,14 @@ import {
         MatProgressSpinnerModule,
         MatFormFieldModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        AgmCoreModule.forRoot({})
     ],
-    providers: [],
+    providers: [
+        SidenavService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

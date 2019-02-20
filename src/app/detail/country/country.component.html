@@ -1,0 +1,10 @@
+<div *ngIf="country">
+  <div class="head">
+    <img [src]="country.flag" />
+    <a (click)="closeSidebar()"><mat-icon>arrow_back_ios</mat-icon></a>
+    <div class="title">
+      <h1 class="mat-h1" >{{country.name}} <small>({{country.nativeName}})</small></h1>
+    </div>
+  </div>
+  <img [src]="country.flag" />
+</div>

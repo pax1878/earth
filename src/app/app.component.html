@@ -1,2 +1,9 @@
-<router-outlet></router-outlet>
-<countries></countries>
+<mat-drawer-container autosize>
+    <mat-drawer #sidenav mode="over" autoFocus="true" position="end" fixedInViewport="true">
+        <router-outlet></router-outlet>
+    </mat-drawer>
+    <mat-toolbar color="primary">
+        <mat-icon matPrefix>explore</mat-icon><span>Earth</span>
+    </mat-toolbar>
+    <countries></countries>
+</mat-drawer-container>

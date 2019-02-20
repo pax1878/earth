@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {CountryDataService} from '../../shared/country-data.service';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {Country} from '../../shared/country';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'countries',
@@ -14,7 +15,7 @@ export class CountriesComponent implements OnInit {
     dataSource: MatTableDataSource<any>;
     countries: Country[];
 
-    constructor(private countryData: CountryDataService) {
+    constructor(private countryData: CountryDataService, private router: Router) {
     }
 
 
@@ -29,7 +30,7 @@ export class CountriesComponent implements OnInit {
     }
 
     onRowClick(row) {
-        console.log(row);
+        this.router.navigate(['/detail', row.alpha3Code]);
     }
 
     applyFilter(filterValue: string) {

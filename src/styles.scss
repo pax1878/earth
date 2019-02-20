@@ -1,2 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("//fonts.googleapis.com/icon?family=Material+Icons");
+@import url("//fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import '~@angular/material/theming';
+@include mat-core();
+
+$earth-colors: (
+        50 : #fae5e7,
+        100 : #f2bfc3,
+        200 : #ea949b,
+        300 : #e16972,
+        400 : #da4854,
+        500 : #d42836,
+        600 : #cf2430,
+        700 : #c91e29,
+        800 : #c31822,
+        900 : #b90f16,
+        A100 : #ffe7e8,
+        A200 : #ffb4b6,
+        A400 : #ff8185,
+        A700 : #ff686c,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$earth-colors-accent: (
+        50 : #e0f1e4,
+        100 : #b3dbbc,
+        200 : #80c390,
+        300 : #4dab63,
+        400 : #269941,
+        500 : #008720,
+        600 : #007f1c,
+        700 : #007418,
+        800 : #006a13,
+        900 : #00570b,
+        A100 : #89ff8f,
+        A200 : #56ff5f,
+        A400 : #23ff2f,
+        A700 : #09ff17,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$primary: mat-palette($earth-colors);
+$accent:  mat-palette($earth-colors-accent, A200, A100, A400);
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);

@@ -13,4 +13,8 @@ export class CountryDataService {
   fetchCountries(): Observable<Country[]> {
     return this.http.get<Country[]>('https://restcountries.eu/rest/v2');
   }
+
+  fetchCountry(countryCode: string): Observable<Country> {
+    return this.http.get<Country>('https://restcountries.eu/rest/v2/alpha/' + countryCode);
+  }
 }
