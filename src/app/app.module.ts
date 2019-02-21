@@ -7,11 +7,12 @@ import {CountriesComponent} from './list/countries/countries.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+    ErrorStateMatcher,
     MatButtonModule,
-    MatCardModule, MatExpansionModule,
+    MatCardModule, MatDialogModule, MatExpansionModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
+    MatInputModule, MatListModule,
     MatProgressSpinnerModule, MatSidenavModule,
     MatSortModule,
     MatTableModule, MatToolbarModule,
@@ -20,13 +21,20 @@ import {CountryComponent} from './detail/country/country.component';
 import {SidenavService} from './shared/sidenav.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { EditCountryComponent } from './detail/edit-country/edit-country.component';
+import {AgmCoreModule} from '@agm/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ConfirmSubmitDialogComponent } from './detail/confirm-submit-dialog/confirm-submit-dialog.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CountriesComponent,
         CountryComponent,
-        EditCountryComponent
+        EditCountryComponent,
+        ConfirmSubmitDialogComponent
+    ],
+    entryComponents: [
+        ConfirmSubmitDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -44,10 +52,16 @@ import { EditCountryComponent } from './detail/edit-country/edit-country.compone
         MatCardModule,
         MatExpansionModule,
         MatButtonModule,
-        FlexLayoutModule
+        MatDialogModule,
+        MatListModule,
+        FlexLayoutModule,
+        AgmCoreModule.forRoot({apiKey: 'AIzaSyA0gvHKpLsvaDEaqr3eIkS98QiUuvl4iKQ'}),
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
-        SidenavService
+        SidenavService,
+        ErrorStateMatcher
     ],
     bootstrap: [AppComponent]
 })

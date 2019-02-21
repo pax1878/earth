@@ -1,16 +1,18 @@
-<mat-drawer-container autosize fxFlex="row" fullscreen>
+<mat-drawer-container fullscreen fxLayout="column">
     <mat-drawer #sidenav mode="over" autoFocus="true" position="end" fixedInViewport="true">
         <router-outlet></router-outlet>
     </mat-drawer>
-    <mat-toolbar color="primary">
+    <div fxFlex="100%" fxLayout="column" fxLayoutGap="10px">
+    <mat-toolbar fxLayout="row" fxLayoutGap="20px" color="primary">
         <mat-icon matPrefix>explore</mat-icon>
         <span>Earth</span>
     </mat-toolbar>
-    <div class="list" fxFlex="row">
-        <mat-card>
-            <mat-card-content>
-                <countries></countries>
+    <div class="list" fxFlex="100%" fxLayoutAlign="center">
+        <mat-card fxFlex.gt-md="60%">
+            <mat-card-content fxFlex.gt-md="675px">
+                    <countries></countries>
             </mat-card-content>
         </mat-card>
+    </div>
     </div>
 </mat-drawer-container>

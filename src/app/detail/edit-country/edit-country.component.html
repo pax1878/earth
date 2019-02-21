@@ -1,17 +1,29 @@
-<form fxLayout="column" fxLayoutGap="10px">
+<form fxLayout="column" fxLayoutGap="10px" [formGroup]="reportForm" (ngSubmit)="submit()">
     <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
         <mat-form-field fxFlex="50%" fxFlex.xs="100%">
-            <input matInput placeholder="Your Name" value="">
+            <input matInput placeholder="Your Name" value="" formControlName="name" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="reportForm.get('name').hasError('required')">
+                Your name is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field fxFlex="50%">
-            <input matInput placeholder="Your eMail" value="">
+            <input matInput placeholder="Your eMail" formControlName="email" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="reportForm.get('email').hasError('email') && !reportForm.get('email').hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="reportForm.get('email').hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
     </div>
     <mat-form-field fxFlex="100%">
-        <textarea matInput placeholder="What is wrong?"></textarea>
+        <textarea matInput placeholder="What is wrong?" formControlName="message" [errorStateMatcher]="matcher"></textarea>
+        <mat-error *ngIf="reportForm.get('message').hasError('required')">
+            Please give us a hint what is wrong
+        </mat-error>
     </mat-form-field>
     <div fxFlex="auto" fxLayoutAlign="end">
-        <button (click)="return;" mat-raised-button color="primary"><mat-icon>email</mat-icon> Submit</button>
+        <button [disabled]="reportForm.invalid" type="submit" mat-raised-button color="primary"><mat-icon>email</mat-icon> Submit</button>
     </div>
 </form>

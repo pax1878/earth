@@ -1,6 +1,26 @@
+@import "~@angular/flex-layout/mq";
+
 a {
   cursor: pointer;
 }
 .country-info {
   margin: 10px;
+  .mat-card {
+    margin-bottom: 5px;
+  }
+  .mat-card-title {
+    @include layout-bp(xs) {
+      font-size: 18px;
+    }
+    @include layout-bp(sm) {
+      font-size: 18px;
+    }
+    @include layout-bp(md) {
+      font-size: 18px;
+    }
+  }
+}
+
+agm-map {
+  height: 300px;
 }

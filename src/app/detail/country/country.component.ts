@@ -25,7 +25,6 @@ export class CountryComponent implements OnInit {
 
     private loadCountry(countryCode): void {
         this.countryService.fetchCountry(countryCode).subscribe((country: Country) => {
-            console.log(country);
             this.country = country;
             this.sidenavService.open();
         });

@@ -13,6 +13,7 @@ export class SidenavService {
 
   public setSidenav(sidenav: MatSidenav) {
     this.sidenav = sidenav;
+    this.sidenav.closedStart.subscribe(() => this.router.navigate(['']));
   }
 
   public open() {
@@ -21,7 +22,7 @@ export class SidenavService {
 
 
   public close() {
-    return this.sidenav.close().then(() => this.router.navigate(['']));
+    return this.sidenav.close();
   }
 
   public toggle(): void {

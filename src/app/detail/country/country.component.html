@@ -1,22 +1,79 @@
 <div *ngIf="country" class="country-detail" fxLayout="column" fxLayoutGap="10px">
-    <mat-toolbar color="primary">
+    <mat-toolbar fxLayout="row" fxLayoutGap="10px">
         <a (click)="closeSidebar()">
             <mat-icon>arrow_back_ios</mat-icon>
         </a>
-        {{country.name}}
+        <img [src]="country.flag" [alt]="country.name" fxFlex="75px" />
+        <p>{{country.name}} ({{country.nativeName}})</p>
     </mat-toolbar>
     <div class="country-info" fxLayout="column">
-        <div fxLayout="row">
-            <mat-card fxFlex="100%">
-                {{country.capital}}
+        <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
+            <mat-card fxFlex="auto" *ngIf="country.region">
+                <mat-card-title>
+                    <mat-icon matPrefix>map</mat-icon>
+                    Region
+                </mat-card-title>
+                <mat-card-content>{{country.region}}<span *ngIf="country.subregion">/{{country.subregion}}</span>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex="auto" *ngIf="country.capital">
+                <mat-card-title>
+                    <mat-icon matPrefix>location_city</mat-icon>
+                    Captial
+                </mat-card-title>
+                <mat-card-content>{{country.capital}}</mat-card-content>
+            </mat-card>
+            <mat-card fxFlex="auto" *ngIf="country.population">
+                <mat-card-title>
+                    <mat-icon matPrefix>people</mat-icon>
+                    Population
+                </mat-card-title>
+                <mat-card-content>{{country.population | number}}</mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" fxLayoutGap="5px" gdAlignColumns="center stretch">
+            <mat-card fxFlex="100%" *ngIf="country.currencies && country.currencies.length > 0">
+                <mat-card-title>
+                    <mat-icon matPrefix>money</mat-icon>
+                    Currencies
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item *ngFor="let currency of country.currencies">
+                            {{currency.symbol || ''}} "{{currency.name}}" ({{currency.code}})
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex="100%" *ngIf="country.timezones && country.timezones.length > 0">
+                <mat-card-title>
+                    <mat-icon matPrefix>access_time</mat-icon>
+                    Timezones
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item *ngFor="let timezone of country.timezones">
+                            {{timezone}}
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
             </mat-card>
         </div>
     </div>
+    <mat-card class="country-info">
+        <mat-card-title>You can find us here</mat-card-title>
+        <mat-card-content>
+            <agm-map [latitude]="country.latlng[0]" [longitude]="country.latlng[1]" [zoom]="3">
+                <agm-marker [latitude]="country.latlng[0]" [longitude]="country.latlng[1]"
+                            [label]="country.name"></agm-marker>
+            </agm-map>
+        </mat-card-content>
+    </mat-card>
     <mat-accordion class="country-info">
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Report
+                    Report a error
                 </mat-panel-title>
                 <mat-panel-description>
                     Please let us now if something is wrong...

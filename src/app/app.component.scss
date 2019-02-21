@@ -1,13 +1,14 @@
-mat-toolbar {
-  margin-bottom: 20px;
-  mat-icon {
-    margin-right: 10px;
-  }
-}
+@import "~@angular/flex-layout/mq";
 .list {
   margin: 10px;
 }
 
 mat-drawer {
   width: 100%;
+  @include layout-bp(md) {
+    width: 75%;
+  }
+  @include layout-bp(lg) {
+    width: 50%;
+  }
 }

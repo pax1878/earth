@@ -1,6 +1,3 @@
-import {Latlng} from './latlng';
-import {Currency} from './currency';
-
 export interface Country {
     name: string;
     nativeName: string;
@@ -9,6 +6,11 @@ export interface Country {
     subregion: string;
     capital: string;
     flag: string;
-    latlng: Latlng;
-    currency: Currency[];
+    latlng: string[];
+    currencies: {
+        code: string,
+        name: string,
+        symbol: string
+    }[];
+    timezones: string[];
 }
