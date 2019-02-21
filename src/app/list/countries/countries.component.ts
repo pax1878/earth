@@ -14,7 +14,7 @@ export class CountriesComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
     dataSource: MatTableDataSource<any>;
     countries: Country[];
-
+    loading = true;
     constructor(private countryData: CountryDataService, private router: Router) {
     }
 
@@ -25,6 +25,7 @@ export class CountriesComponent implements OnInit {
                 this.countries = res;
                 this.dataSource = new MatTableDataSource(this.countries);
                 this.dataSource.sort = this.sort;
+                this.loading = false;
             }
         );
     }

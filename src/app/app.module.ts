@@ -24,6 +24,7 @@ import { EditCountryComponent } from './detail/edit-country/edit-country.compone
 import {AgmCoreModule} from '@agm/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ConfirmSubmitDialogComponent } from './detail/confirm-submit-dialog/confirm-submit-dialog.component';
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
 @NgModule({
     declarations: [
@@ -55,9 +56,10 @@ import { ConfirmSubmitDialogComponent } from './detail/confirm-submit-dialog/con
         MatDialogModule,
         MatListModule,
         FlexLayoutModule,
-        AgmCoreModule.forRoot({apiKey: 'AIzaSyA0gvHKpLsvaDEaqr3eIkS98QiUuvl4iKQ'}),
+        AgmCoreModule.forRoot({apiKey: 'AIzaSyDpwV6uIP29mnZ0GGTW0SjArwseXH9UB4A'}),
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        JwSocialButtonsModule
     ],
     providers: [
         SidenavService,

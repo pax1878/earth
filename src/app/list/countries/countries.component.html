@@ -1,26 +1,34 @@
-<mat-form-field>
-  <mat-icon matPrefix>search</mat-icon>
-  <mat-label>Search for a country</mat-label>
-  <input matInput (keyup)="applyFilter($event.target.value)">
-</mat-form-field>
-<table mat-table matSort [dataSource]="dataSource">
+<mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
+<mat-card fxFlex.gt-md="60%" *ngIf="!loading">
+  <mat-card-content>
+    <mat-form-field>
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label>Search for a country</mat-label>
+      <input matInput (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+    <table mat-table matSort [dataSource]="dataSource">
 
-  <ng-container matColumnDef="flag">
-    <th mat-header-cell *matHeaderCellDef> <mat-icon matPrefix>flag</mat-icon> </th>
-    <td mat-cell *matCellDef="let country" class="flag"> <img [alt]="country.name" [src]="country.flag" /> </td>
-  </ng-container>
+      <ng-container matColumnDef="flag">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-icon matPrefix>flag</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let country" class="flag"> <img [alt]="country.name" [src]="country.flag" /> </td>
+      </ng-container>
 
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-    <td mat-cell *matCellDef="let country" class="name"> {{country.name}} <span>({{country.nativeName}})</span> </td>
-  </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let country" class="name"> {{country.name}} <span>({{country.nativeName}})</span>
+        </td>
+      </ng-container>
 
-  <ng-container matColumnDef="population">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header><mat-icon matPrefix>people</mat-icon></th>
-    <td mat-cell *matCellDef="let country" class="population">{{country.population | number}} </td>
-  </ng-container>
+      <ng-container matColumnDef="population">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Population</th>
+        <td mat-cell *matCellDef="let country" class="population">{{country.population | number}} </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
 
-  <tr mat-row *matRowDef="let row; columns: columns" (click)="onRowClick(row)"></tr>
-</table>
+      <tr mat-row *matRowDef="let row; columns: columns" (click)="onRowClick(row)"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
