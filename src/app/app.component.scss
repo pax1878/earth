@@ -11,4 +11,7 @@ mat-drawer {
   @include layout-bp(lg) {
     width: 50%;
   }
+  @include layout-bp(xl) {
+    width: 50%;
+  }
 }

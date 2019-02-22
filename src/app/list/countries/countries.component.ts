@@ -11,21 +11,24 @@ import {Router} from '@angular/router';
 })
 export class CountriesComponent implements OnInit {
     columns: string[] = ['flag', 'name', 'population'];
-    @ViewChild(MatSort) sort: MatSort;
+    private sort: MatSort;
+    @ViewChild(MatSort) set matSort(ms: MatSort) {
+        this.sort = ms;
+        this.setDataSourceAttributes();
+    }
     dataSource: MatTableDataSource<any>;
     countries: Country[];
-    loading = true;
-    constructor(private countryData: CountryDataService, private router: Router) {
-    }
+    loading: boolean;
+    constructor(private countryData: CountryDataService, private router: Router) {}
 
 
     ngOnInit() {
+        this.loading = true;
         this.countryData.fetchCountries().subscribe(
             res => {
-                this.countries = res;
-                this.dataSource = new MatTableDataSource(this.countries);
-                this.dataSource.sort = this.sort;
                 this.loading = false;
+                this.countries = res;
+                this.initDataSource();
             }
         );
     }
@@ -36,5 +39,15 @@ export class CountriesComponent implements OnInit {
 
     applyFilter(filterValue: string) {
         this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    private initDataSource() {
+        this.dataSource = new MatTableDataSource(this.countries);
+    }
+
+    private setDataSourceAttributes() {
+        if(this.sort) {
+            this.dataSource.sort = this.sort;
+        }
     }
 }
