@@ -14,8 +14,8 @@ export class CountryComponent implements OnInit {
     country: Country;
     @ViewChild('start') sidenav: MatSidenav;
 
-    constructor(private countryService: CountryDataService, private router: Router, private activeRoute: ActivatedRoute, private sidenavService: SidenavService) {
-    }
+    constructor(private countryService: CountryDataService, private router: Router,
+                private activeRoute: ActivatedRoute, private sidenavService: SidenavService) {}
 
     ngOnInit() {
         this.activeRoute.params.subscribe((params: { country: string }) => {
@@ -31,7 +31,6 @@ export class CountryComponent implements OnInit {
     }
 
     closeSidebar(): void {
-        this.router.navigate(['']);
         this.sidenavService.close();
     }
 

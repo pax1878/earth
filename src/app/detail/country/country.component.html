@@ -1,8 +1,8 @@
 <div *ngIf="country" class="country-detail" fxLayout="column" fxLayoutGap="10px">
     <mat-toolbar fxLayout="row" fxLayoutGap="10px">
-        <a (click)="closeSidebar()">
-            <mat-icon matPrefix>arrow_back_ios</mat-icon>
-        </a>
+        <button mat-icon-button (click)="closeSidebar()">
+            <mat-icon aria-label="Close country">arrow_back_ios</mat-icon>
+        </button>
         <img [src]="country.flag" [alt]="country.name" fxFlex="75px" fxFlex.xs="45px" />
         <p>{{country.name}}</p>
         <p><small>({{country.nativeName}})</small></p>

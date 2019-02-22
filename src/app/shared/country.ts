@@ -13,4 +13,5 @@ export interface Country {
         symbol: string
     }[];
     timezones: string[];
+    alpha3Code: string;
 }
