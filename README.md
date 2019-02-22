@@ -1,27 +1,40 @@
 # Earth
+Developer Challenge für tresmo von Pascal Uhe.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+Eine kleine Applikation, geschrieben mit Angular, die die Länder der Erde auflistet. 
+Die Liste lässt sich sortieren und mit einer Texteingabe filtern.
 
-## Development server
+## Umsetzung
+Da es frei gestellt war mit welchem Werkzeug die Anwendung umgesetzt wird, habe ich mich für Angular entschieden.
+Der Grund dafür ist, dass ich vor einiger Zeit eine Schulung zum Thema Angular besuchen durfte.
+Dieses angeeignete Wissen wollte ich jetzt auf die Probe stellen und eine "sinnvolle" Anwendung damit entwickeln.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Um die Anwendung ansehnlich zu gestalten habe ich mich für das Material-Layout entschieden.
+Dies integriert sich hervorragend in Angular, da es die wichtigsten Komponenten bereits liefert.
 
-## Code scaffolding
+Für die Mobile-Darstellung, bzw. damit die Anwendung responsive auf das jeweilige Device reagiert,
+kommt das Material FlexLayout zum einsatz. Damit werden zwar keine alten Browser (IE < 9)) mehr unterstützt
+hat mir aber dafür einiges an CSS-Ärger während der Entwicklung erspart.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ich habe eine inline-Validierung für das Formular umgesetzt. Die Validierung beim Submit würde auch funktionierne,
+wenn zugelassen werden würde, dass der Submit-Button auch bei fehlerhaftem Formular aktiviert bleibt.
 
-## Build
+## Herausforderungen
+Die eigentliche Herausforderung der Aufgabe war es, dass ich noch nie eine echte Applikation mit Angular
+geschrieben habe. Dementsprechend musste ich viel in der Dokumentation nachsehen und einiges auch ausprobieren.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Dieser Mehraufwand - auch mit dem Einlesen in das Material-Framework - hat mir letztendlich aber einiges an Aufwand erspart.
+Die geforderten Features (Liste sortieren und filtern) kommen zum Beispiel mit Angular bzw. Material gleich mit.
 
-## Running unit tests
+## Optimierungen
+Im ersten Schritt würde ich zur Optimierung der Usability eine Paginierung der Länderliste einbauen. Dabei wäre darauf 
+zu achten, dass die Filterung dennoch über alle Daten und nicht nur die gerade zur Anzeige gebrachten funktioniert.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Auf der Detailseite müsste die Einbindung von Google Maps noch etwas optimiert werden.
+Die API liefert leider nur ein Längen- und Breitengrad zurück, das wohl die Mitte des jeweiligen Landes markiert.
 
-## Running end-to-end tests
+Dadurch ist es, meines Wissens nach, nicht Möglich die Zoom-Stufe der Karte auf das angezeigt Land anzupassen.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Man müsste also die Google Places API mit dem Namen des Landes abfragen. Hier bekommt man dann auch noch die Bounces des
+angefragten Landes zurück. Damit kann man dann das Land in der korrekten Zoom-Stufe anzeigen.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
