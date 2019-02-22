@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  title = 'earth';
   @ViewChild('sidenav') sidenav: MatSidenav;
   constructor(private sidenavService: SidenavService, private router: Router) {}
 
