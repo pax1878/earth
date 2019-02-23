@@ -62,9 +62,8 @@
     <mat-card class="country-block">
         <mat-card-title>You can find us here</mat-card-title>
         <mat-card-content>
-            <agm-map [latitude]="country.latlng[0]" [longitude]="country.latlng[1]" [zoom]="3">
-                <agm-marker [latitude]="country.latlng[0]" [longitude]="country.latlng[1]"
-                            [label]="country.name" gestureHandling="cooperative" fitBounds="true"></agm-marker>
+            <agm-map #AgmMap gestureHandling="cooperative">
+                <agm-marker [latitude]="country.latlng[0]" [longitude]="country.latlng[1]"></agm-marker>
             </agm-map>
         </mat-card-content>
     </mat-card>

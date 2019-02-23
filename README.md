@@ -30,11 +30,5 @@ Die geforderten Features (Liste sortieren und filtern) kommen zum Beispiel mit A
 Im ersten Schritt würde ich zur Optimierung der Usability eine Paginierung der Länderliste einbauen. Dabei wäre darauf 
 zu achten, dass die Filterung dennoch über alle Daten und nicht nur die gerade zur Anzeige gebrachten funktioniert.
 
-Auf der Detailseite müsste die Einbindung von Google Maps noch etwas optimiert werden.
-Die API liefert leider nur ein Längen- und Breitengrad zurück, das wohl die Mitte des jeweiligen Landes markiert.
-
-Dadurch ist es, meines Wissens nach, nicht Möglich die Zoom-Stufe der Karte auf das angezeigt Land anzupassen.
-
-Man müsste also die Google Places API mit dem Namen des Landes abfragen. Hier bekommt man dann auch noch die Bounces des
-angefragten Landes zurück. Damit kann man dann das Land in der korrekten Zoom-Stufe anzeigen.
-
+Je nach weiteren Features würden die existierenden Komponenten noch granularer aufgetelt werden.
+Damit kann eine Wiederverwendung sicher gestellt werden.
