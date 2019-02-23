@@ -24,7 +24,6 @@ export class CountryComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.mapLoading = true;
         this.activeRoute.params.subscribe((params: { country: string }) => {
             this.loadCountry(params.country);
         });
