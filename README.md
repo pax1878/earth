@@ -19,6 +19,8 @@ hat mir aber dafür einiges an CSS-Ärger während der Entwicklung erspart.
 Ich habe eine inline-Validierung für das Formular umgesetzt. Die Validierung beim Submit würde auch funktionierne,
 wenn zugelassen werden würde, dass der Submit-Button auch bei fehlerhaftem Formular aktiviert bleibt.
 
+Es gibt einige Unit-Tests mit Karma und Jasmine. Toll fand ich die Möglichkeit auch Komponenten im gerenderten Zustand testen zu können. Das war sehr spannend mich da einzuarbeiten und es umzusetzen.
+
 ## Herausforderungen
 Die eigentliche Herausforderung der Aufgabe war es, dass ich noch nie eine echte Applikation mit Angular
 geschrieben habe. Dementsprechend musste ich viel in der Dokumentation nachsehen und einiges auch ausprobieren.
