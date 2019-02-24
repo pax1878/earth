@@ -30,5 +30,7 @@ Die geforderten Features (Liste sortieren und filtern) kommen zum Beispiel mit A
 Im ersten Schritt würde ich zur Optimierung der Usability eine Paginierung der Länderliste einbauen. Dabei wäre darauf 
 zu achten, dass die Filterung dennoch über alle Daten und nicht nur die gerade zur Anzeige gebrachten funktioniert.
 
+Es fehlt auch noch ein Fehler-Handling das dem User ein Feedback gibt wenn z.B. einer der benutzten Services nicht erreichbar ist oder eine fehlerhafte Antwort zurück gibt.
+
 Je nach weiteren Features würden die existierenden Komponenten noch granularer aufgetelt werden.
 Damit kann eine Wiederverwendung sicher gestellt werden.
