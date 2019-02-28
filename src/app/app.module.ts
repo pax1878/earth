@@ -56,7 +56,7 @@ import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
         MatDialogModule,
         MatListModule,
         FlexLayoutModule,
-        AgmCoreModule.forRoot({apiKey: 'AIzaSyDpwV6uIP29mnZ0GGTW0SjArwseXH9UB4A'}),
+        AgmCoreModule.forRoot({apiKey: 'SECRET'}),
         FormsModule,
         ReactiveFormsModule,
         JwSocialButtonsModule
